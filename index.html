@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Playing Games Feels So Good</title>
+    <style>
+        /* Basic reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Navbar styling */
+        .menu {
+            width: 100%;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .menu a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #aaa;
+        }
+
+        /* Section styling */
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Background images and dim overlays for each section */
+        #section1 {
+            background: url('1.jpg') no-repeat center center/cover;
+        }
+
+        #section2 {
+            background: url('2.jpg') no-repeat center center/cover;
+        }
+
+        #section3 {
+            background: url('3.jpg') no-repeat center center/cover;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dim effect */
+            z-index: 1;
+        }
+
+        /* Content styling */
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ddd;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        /* Divider wave */
+        .wave {
+            width: 100%;
+            height: 50px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="1" d="M0,320L48,288C96,256,192,192,288,160C384,128,480,128,576,138.7C672,149,768,171,864,170.7C960,171,1056,149,1152,128C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+        }
+
+        /* Footer credit */
+        .credit {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            color: rgba(200, 200, 200, 0.3); /* Light gray, almost invisible */
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu -->
+    <div class="menu">
+        <a href="#section1">Home</a>
+        <a href="#section2">Why Games?</a>
+        <a href="#section3">The Benefits</a>
+    </div>
+
+    <!-- Sections -->
+    <div class="section" id="section1">
+        <div class="content">
+            <h1 class="title">Why Playing Games Feels So Good</h1>
+            <p class="subtitle">Discover the psychology behind the joy of gaming</p>
+        </div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="section" id="section2">
+        <div class="content">
+            <h2 class="title">Reward Deficiency and Gaming</h2>
+            <p>Explore how gaming stimulates the brain's reward system and fulfills the need for achievement and satisfaction, even in those with Reward Deficiency Syndrome.</p>
+        </div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="section" id="section3">
+        <div class="content">
+            <h2 class="title">Gaming Culture and Competitions</h2>
+            <p>Learn how competitive gaming events create a sense of belonging, excitement, and community, which contribute to the overall positive gaming experience.</p>
+        </div>
+    </div>
+
+    <!-- Credit -->
+    <div class="credit">web made by Keenan X8-4</div>
+
+    <!-- JavaScript for scroll animations -->
+    <script>
+        const sections = document.querySelectorAll('.section');
+
+        window.addEventListener('scroll', () => {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight - 100) {
+                    section.classList.add('visible');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
+
